@@ -171,7 +171,7 @@ ___
 
 ## **PART 2:** Rendering ingredients 
 
-Using the provided ingredient data, render it on the page in the.
+Using the provided ingredient data, render it on the page in the `IngredientList` component.
 
 * You can make a constant in the `IngredientList` component for the data array. Since this data doesn't need to change, it doesn't have to be in state. 
 * You'll have to map the data into `Ingredient` Components and render them in the `IngredientList`. 
