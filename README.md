@@ -251,7 +251,7 @@ Now its time to add some click events!
 
 ### _GET READY_ **INCOMING ACCESSIBILITY RANT**
 
-> Since the ingredients need to be clickable, you should put a `<button>` in the `Ingredient` component for the user to click on. Although it is very possible to make _any html element clickable_ (and unfortunately something that people do all to frequently), you should always use **semantically correct elements for click events**. This is a big **_accessibility_** concern, as screen-reader devices use `<button>`s for inform their users about possible interactions on the page. A visually impaired person relying on an screen-reader **may not have any way know** to click on a wonderfully styled div with an event listener on it, because their screen-reader will not know to tell them about it.
+> Since the ingredients need to be clickable, you should put a `<button>` in the `Ingredient` component for the user to click on. Although it is very possible to make _any html element clickable_ (and unfortunately something that people do all to frequently), you should always use **semantically correct elements for click events**. This is a big **_accessibility_** concern, as screen-reader devices rely on `<button>`s to inform their users about possible interactions on the page. A visually impaired person relying on an screen-reader **may not have any way know** to click on a wonderfully styled div with an event listener on it, because their screen-reader will not know to tell them about it.
 
 <details>
   <summary>HELP! I'm scared my app won't be accessible now! AND WHAT IS PROP DRILLING ANYWAYS?!?!</summary>
@@ -349,7 +349,11 @@ const handleIngredientClick = (e) => {
 
 Is that a burger ingredient I smell? It is? Lets make some state to hold it!
 
-**OH SNAP** How we gonna do this? Well state should probably definitely be an array, since there will be many ingredient names. I'd make it an array of objects, with a `key` of `name` that has a `value` of `e.target.innerText`. Why an object with one key? _spoiler alert_ you might want this object to have a key of color later too (but not until we get there...). _PRO TIP_ Keep the shape of the data consistent across the apps (just do it, it'll make things less confusing -- look at the array if ingredients to know what I mean). 
+**OH SNAP** How we gonna do this? Well state should ~~probably~~ _(definitely)_ be an array, since there will be many ingredient names. I'd make it an array of objects, with a `key` of `name` that has a `value` of `e.target.innerText`. 
+
+Like this: `{ name: e.target.value }`. 
+
+Why an object with one key? _spoiler alert_ you might want this object to have a key of color later too (but not until we get there...). _PRO TIP_ Keep the shape of the data consistent across your apps (seriouosly, just do it, it'll make things way less confusing) Look at the array if ingredients to know what I mean. 
 
 
 * Set initial state to be an empty array `[]`
@@ -403,7 +407,7 @@ export default App;
 
 So close! WE ARE ALMOST THERE!
 
-* You know the _drill_ by now (lmao sorry), pass the state in props to the `BurgerStack` 
+* You know the _drill_ by now (lmao, sorry), pass the state in props to the `BurgerStack` 
   * You will have to map an array of ingredients to render in `BurgerStack` -- you got this
 
  <details>
